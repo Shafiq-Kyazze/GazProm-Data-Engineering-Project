@@ -49,7 +49,7 @@ def time_convertor(raw_time):
 
 for file in files:
     df = pd.read_csv(Original_data_folder+file) #Pandas dataframe for a given file
-    To_Head = list(df.columns) #List of columns in dataframe
+    To_Head = list(df.columns) #List of columns in dataframe excluding the header
     N_rows = len(df.index) - 1 #Number of rows in dataframe excluding the footer
 
 
@@ -72,7 +72,7 @@ for file in files:
         # Try block is employed to deal with non-unique File Generation Numbers(FGN). To make sure the same file isn't uploaded again
         try:
             headers = HEADR(
-                Record_Identifier=To_Head[0], Number_of_rows = N_rows,File_Type=To_Head[1], Company_ID=To_Head[2],
+                Number_of_rows = N_rows,File_Type=To_Head[1], Company_ID=To_Head[2],
                 File_Creation_Date=To_Head[3], File_Creation_Time=To_Head[4], File_Generation_Number=To_Head[5])
             s.add(headers)
             s.commit()

@@ -16,8 +16,7 @@ class HEADR(Base):
     id = Column(Integer, Identity(always=False,start=1,increment=1),primary_key=True)
     Upload_Datetime = Column(DateTime, default=datetime.datetime.now) #Time when file is received in Database
     Number_of_rows = Column(Integer) #Number of rows per file excluding footer
-    Record_Identifier = Column(String) #Setting data types to validate the data
-    File_Type = Column(String)
+    File_Type = Column(String)  #Setting data types to validate the data
     Company_ID = Column(String)
     File_Creation_Date = Column(Date)
     File_Creation_Time = Column(Time)
