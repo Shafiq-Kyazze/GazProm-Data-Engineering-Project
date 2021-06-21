@@ -9,10 +9,9 @@
 
 
 ***Aims***
- 1. Contruction of  data models using an ORM i.e SQL-Alchemy.
- 2. Data   manipulation using pandas
- 3.  Data Validation data before it is uploaded
-    to the Database
+ 1. Construction of  data models using an ORM ideally SQL-Alchemy.
+ 2. Data  manipulation 
+ 3. Data Validation  before data upload to the Database
  4. Python module that obtains different views from the database
 
 . 
