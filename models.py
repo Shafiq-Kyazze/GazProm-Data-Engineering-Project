@@ -6,7 +6,7 @@ import datetime
 
 
 
-
+#Declaring base to define classes
 Base = declarative_base()
 
 
@@ -15,10 +15,10 @@ class HEADR(Base):
     __tablename__ = "Header"
     id = Column(Integer, Identity(always=False,start=1,increment=1),primary_key=True)
     Upload_Datetime = Column(DateTime, default=datetime.datetime.now) #Time when file is received in Database
-    Number_of_rows = Column(Integer)
+    Number_of_rows = Column(Integer) #Number of rows per file excluding footer
     Record_Identifier = Column(String) #Setting data types to validate the data
     File_Type = Column(String)
-    Company_ID = Column(String(50))
+    Company_ID = Column(String)
     File_Creation_Date = Column(Date)
     File_Creation_Time = Column(Time)
     File_Generation_Number= Column(String, unique=True, nullable=False)
@@ -34,7 +34,7 @@ class CONSU(Base):
     Measurement_Date = Column(Date)
     Measurement_Time = Column(Time)
     Consumption= Column(Float)
-    Header_id = Column(Integer,ForeignKey("Header.id")) #Foreign key added
+    Header_id = Column(Integer,ForeignKey("Header.id")) #Foreign key added from Header table
 
     HEADR = relationship("HEADR")
 
