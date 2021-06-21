@@ -1,17 +1,21 @@
-from sqlalchemy import Column, Integer, String, Date,Float,Time
+from sqlalchemy import Column, Integer, String, Date,Float,Time,DateTime
 from sqlalchemy import ForeignKey, Identity
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+import datetime
 
 
 
 
 Base = declarative_base()
 
+
 #Table class that will construct the first table with the main records of each file
 class HEADR(Base):
     __tablename__ = "Header"
     id = Column(Integer, Identity(always=False,start=1,increment=1),primary_key=True)
+    Upload_Datetime = Column(DateTime, default=datetime.datetime.now) #Time when file is received in Database
+    Number_of_rows = Column(Integer)
     Record_Identifier = Column(String, nullable=True)
     File_Type = Column(String)
     Company_ID = Column(String(50))
@@ -33,3 +37,4 @@ class CONSU(Base):
     Header_id = Column(Integer,ForeignKey("Header.id")) #Foreign key added
 
     HEADR = relationship("HEADR")
+
