@@ -84,7 +84,7 @@ for file in files:
 
                 #if function that checks if query returned isn't empty i.e the data is going to be overwritten
                 if over_write_query is not None:
-                    #Query with matching parameters is overwritten
+                    #Row in database with matching parameters is overwritten
                     over_write_result = s.query(CONSU).filter(CONSU.Meter_Number == float(row[1]), CONSU.Measurement_Date == row[2],
                                                               CONSU.Measurement_Time ==row[3]).update({CONSU.Record_Identifier:row[0],
                                                                CONSU.Meter_Number: float(row[1]), CONSU.Measurement_Date: row[2],
@@ -102,7 +102,7 @@ for file in files:
             shutil.move(Old_location, New_location)
 
         except IntegrityError:  #Python returns Integrity error if the File Genreation Number is non-unique
-            s.rollback()
+            s.rollback() #Rolls back the current session
             # Moving repeated file to uploaded data folder
             Old_location = Original_data_folder + file  # Original data folder
             Target_location = Bad_data_folder+file
