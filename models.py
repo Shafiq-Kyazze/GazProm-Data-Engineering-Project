@@ -16,7 +16,7 @@ class HEADR(Base):
     id = Column(Integer, Identity(always=False,start=1,increment=1),primary_key=True)
     Upload_Datetime = Column(DateTime, default=datetime.datetime.now) #Time when file is received in Database
     Number_of_rows = Column(Integer)
-    Record_Identifier = Column(String, nullable=True)
+    Record_Identifier = Column(String) #Setting data types to validate the data
     File_Type = Column(String)
     Company_ID = Column(String(50))
     File_Creation_Date = Column(Date)
@@ -30,7 +30,7 @@ class CONSU(Base):
     __tablename__ ="CONSU"
     id = Column(Integer,  Identity(always=False, start=1, increment=1) ,primary_key=True)
     Record_Identifier = Column(String)
-    Meter_Number = Column(Integer)
+    Meter_Number = Column(Integer) #Setting data types to validate the data
     Measurement_Date = Column(Date)
     Measurement_Time = Column(Time)
     Consumption= Column(Float)
