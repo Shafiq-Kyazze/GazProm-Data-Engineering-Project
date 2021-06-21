@@ -49,7 +49,8 @@ def time_convertor(raw_time):
 
 for file in files:
     df = pd.read_csv(sample_data_path+file)
-    To_Head = list(df.columns)
+    To_Head = list(df.columns) #List of columns in dataframe
+    N_rows = len(df.index)-1 #Number of rows in dataframe excluding the footer
     #if function that checks if whole file was tranferred i.e headers and footers
     if (To_Head[0] == 'HEADR') & (df.iloc[-1][0] == 'TRAIL'):
         df.drop(df.columns[-1], axis=1, inplace=True) #Dropping File_Generation_Number column since its the last column
@@ -69,7 +70,7 @@ for file in files:
         # Try block is employed to deal with non-unique File Generation Numbers(FGN). To make sure the same file isn't uploaded again
         try:
             headers = HEADR(
-                Record_Identifier=To_Head[0], File_Type=To_Head[1], Company_ID=To_Head[2],
+                Record_Identifier=To_Head[0], Number_of_rows = N_rows,File_Type=To_Head[1], Company_ID=To_Head[2],
                 File_Creation_Date=To_Head[3], File_Creation_Time=To_Head[4], File_Generation_Number=To_Head[5])
             s.add(headers)
             s.commit()
