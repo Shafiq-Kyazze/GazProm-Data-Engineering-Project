@@ -101,7 +101,7 @@ for file in files:
             Target_location = Bad_data_path+file
             shutil.move(Old_location,Target_location)
 
-    #else:
+    else:
         # Moving bad data to bad data folder
         Old_location = sample_data_path + file  # Original data folder
         Target_location = Bad_data_path + file
