@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date,Float,Time
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Identity
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -8,9 +8,10 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+#Table class that will construct the first table with the main records of each file
 class HEADR(Base):
     __tablename__ = "Header"
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, Identity(always=False,start=1,increment=1),primary_key=True)
     Record_Identifier = Column(String, nullable=True)
     File_Type = Column(String)
     Company_ID = Column(String(50))
@@ -20,10 +21,10 @@ class HEADR(Base):
     
 
 
-
+#Table class that wil construct the second table to populate the rows from each file
 class CONSU(Base):
     __tablename__ ="CONSU"
-    id = Column(Integer, primary_key=True,autoincrement=True)
+    id = Column(Integer,  Identity(always=False, start=1, increment=1) ,primary_key=True)
     Record_Identifier = Column(String)
     Meter_Number = Column(Integer)
     Measurement_Date = Column(Date)
