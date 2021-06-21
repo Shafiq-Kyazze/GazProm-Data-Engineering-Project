@@ -114,6 +114,8 @@ for file in files:
         Target_location = Bad_data_folder + file  #Target location for bad data
         shutil.move(Old_location, Target_location)
 
+#Pushing all the changes to the Database
 s.commit()
 
+#Ending any transactions in progress
 s.close()
