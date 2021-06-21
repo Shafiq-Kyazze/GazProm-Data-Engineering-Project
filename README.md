@@ -3,7 +3,7 @@
 
 
 **Motivation**
-- [ ] Create a Python script that uploads data to a database from a directory into different tables.
+- [ ] Data has to be securely and efficiently added to a database to be accessed by Data Analysts and Scientists 
 
 
 
