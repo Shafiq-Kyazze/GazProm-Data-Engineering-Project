@@ -90,22 +90,22 @@ for file in files:
                     s.add(consus)
 
             # #Moving file to new location to prevent duolication
-            # Old_location = sample_data_path + file #Original data folder
-            # New_location = uploaded_data_path + file #Target data folder
-            # shutil.move(Old_location, New_location)
+            Old_location = sample_data_path + file #Original data folder
+            New_location = uploaded_data_path + file #Target data folder
+            shutil.move(Old_location, New_location)
 
         except IntegrityError:  #Python returns Integrity error if the File Genreation Number is non-unique
             s.rollback()
             # Moving repeated file to uploaded data folder
-            # Old_location = sample_data_path + file  # Original data folder
-            # Target_location = Bad_data_path+file
-            # shutil.move(Old_location,Target_location)
+            Old_location = sample_data_path + file  # Original data folder
+            Target_location = Bad_data_path+file
+            shutil.move(Old_location,Target_location)
 
     #else:
         # Moving bad data to bad data folder
-        # Old_location = sample_data_path + file  # Original data folder
-        # Target_location = Bad_data_path + file
-        # shutil.move(Old_location, Target_location)
+        Old_location = sample_data_path + file  # Original data folder
+        Target_location = Bad_data_path + file
+        shutil.move(Old_location, Target_location)
 
 s.commit()
 
