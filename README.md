@@ -1,5 +1,5 @@
 ![data mgt](https://user-images.githubusercontent.com/58377262/122801061-94142e80-d2bb-11eb-9199-73727a2c2c7a.jpeg)
-## **GazProm-Data-Engineering-Project**
+## **GazProm Data Engineering Project**
 
 
 **Motivation**
